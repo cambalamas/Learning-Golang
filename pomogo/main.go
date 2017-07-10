@@ -49,6 +49,7 @@ func sleepAndNotify(t, title, msg string, notifier *notificator.Notificator) {
 		logrus.Warn(err)
 	}
 
+	// Get
 	waitTime, err := time.ParseDuration(t + "s")
 	if err != nil {
 		logrus.Warn(err)
