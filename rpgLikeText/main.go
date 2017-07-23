@@ -2,29 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
-	"strings"
-	"time"
+	"path/filepath"
 )
 
-const (
-	sleepTime = 100 * time.Millisecond
-)
-
-var (
-	sentences = os.Args[1:]
-)
+var exeName = filepath.Base(os.Args[0])
 
 func main() {
-	for _, s := range sentences {
-		slowPrint(s + "\n")
-	}
-}
 
-func slowPrint(s string) {
-	stringArray := strings.Split(s, "")
-	for _, char := range stringArray {
-		fmt.Print(char)
-		time.Sleep(sleepTime)
+	if len(os.Args)-1 == 0 {
+		if _, err := fmt.Fprintf(os.Stderr, "Usage: %s <string1> <string2>...", exeName); err != nil {
+			log.Fatalln(err)
+		}
+		os.Exit(2)
+	}
+
+	sentences := os.Args[1:]
+	for _, s := range sentences {
+		PrintLikeRpg(s + "\n")
 	}
 }

@@ -6,15 +6,31 @@ import (
 )
 
 const (
-	monday = time.Monday * iota
-	tuesday
-	wednesday
-	thursday
-	friday
-	saturday
-	sunday
+	mon = time.Monday * iota
+	tue
+	wed
+	thu
+	fri
+	sat
+	sun
+)
+
+const (
+	jan = time.January + iota
+	feb
+	mar
+	apr
+	may
+	jun
+	jul
+	aug
+	sep
+	oct
+	nov
+	dec
 )
 
 func main() {
-	fmt.Print(monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+	fmt.Println(mon, tue, wed, thu, fri, sat, sun)
+	fmt.Println(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec)
 }
